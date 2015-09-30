@@ -1,7 +1,6 @@
 -module(fib_seq).
 -author(paatus).
-%-export([get_fibs/1]).
--compile(export_all).
+-export([gen_fib_sequence/1]).
 
 fib(0) -> 0;
 fib(1) -> 1;
