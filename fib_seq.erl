@@ -15,14 +15,16 @@ gen_fib_sequence(N) ->
 gen_fib(_Stop, _Stop, _, Acc) ->
     io:format("~p~n", [Acc]);
 
-% if Count is 0, initiate the list
+% there is not yet two elements in the list
 gen_fib(Stop, Count, [], Acc) ->
     L = Acc ++ [fib(Count)],
     gen_fib(Stop, Count+1, L, L);
 
+% add the previous two elements to create the next number
 gen_fib(Stop, Count, [H1,H2|[]], Acc) ->
     N = Acc ++ [H1+H2],
     gen_fib(Stop, Count+1, N, N);
 
+% sift through the list until it matches previous case
 gen_fib(Stop, Count, [_|T], Acc) ->
     gen_fib(Stop, Count, T, Acc).
